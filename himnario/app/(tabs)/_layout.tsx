@@ -12,6 +12,7 @@ export default function Layout() {
     <FavoritesProvider>
       <Tabs
         screenOptions={{
+          headerShown: false, // 👈 elimina la franja blanca en todas las pantallas
           tabBarActiveTintColor: colors.tint,
           tabBarStyle: { backgroundColor: colors.background },
         }}
@@ -61,7 +62,6 @@ export default function Layout() {
             ),
           }}
         />
-        {/* Nueva pestaña visible llamada Programar */}
         <Tabs.Screen
           name="Programar"
           options={{

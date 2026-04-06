@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { LinearGradient } from 'expo-linear-gradient';
 import {
   View,
   Text,
@@ -7,315 +8,359 @@ import {
   FlatList,
   StyleSheet,
   KeyboardAvoidingView,
+  Platform,
+  Modal,
+  ScrollView,
+  Alert,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useRouter } from "expo-router";   // 👈 importar router
 import data from "../../himnos.json";
 
+const MOMENTOS_PLANTILLA = [
+  { nombreCampo: "ENTRADA", seleccionados: [] },
+  { nombreCampo: "CONFESION DE PECADOS", seleccionados: [] },
+  { nombreCampo: "LA PRIMERA LECTURA", seleccionados: [] },
+  { nombreCampo: "EL SALMO DEL DÍA", seleccionados: [] },
+  { nombreCampo: "LA SEGUNDA LECTURA", seleccionados: [] },
+  { nombreCampo: "TERCERA LECTURA (EL EVANGELIO)", seleccionados: [] },
+  { nombreCampo: "EL CREDO", seleccionados: [] },
+  { nombreCampo: "EL OFERTORIO", seleccionados: [] },
+  { nombreCampo: "ANUNCIOS Y BIENVENIDAS", seleccionados: [] },
+  { nombreCampo: "EL SACRAMENTO", seleccionados: [] },
+  { nombreCampo: "LA BENDICIÓN FINAL", seleccionados: [] },
+];
+
+const ConfirmDialog = ({ visible, title, message, onConfirm, onCancel, isDangerous = false }) => (
+  <Modal transparent visible={visible} animationType="fade" onRequestClose={onCancel}>
+    <View style={styles.modalOverlay}>
+      <View style={styles.dialogContainer}>
+        <Text style={styles.dialogTitle}>{title}</Text>
+        <Text style={styles.dialogMessage}>{message}</Text>
+        <View style={styles.dialogButtonRow}>
+          <TouchableOpacity style={styles.dialogBtnCancel} onPress={onCancel}>
+            <Text style={styles.dialogBtnText}>Cancelar</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.dialogBtnConfirm, isDangerous && styles.dialogBtnDangerous]}
+            onPress={onConfirm}
+          >
+            <Text style={styles.dialogBtnText}>{isDangerous ? "Confirmar" : "Aceptar"}</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </View>
+  </Modal>
+);
+
 export default function Programar() {
+  const [cultos, setCultos] = useState(["Culto Dominical", "Culto de Jóvenes"]);
   const [programaSeleccionado, setProgramaSeleccionado] = useState("Culto Dominical");
   const [liturgia, setLiturgia] = useState([]);
   const [busqueda, setBusqueda] = useState("");
   const [resultados, setResultados] = useState([]);
-  const [campoSeleccionado, setCampoSeleccionado] = useState<number | null>(null);
+  const [campoSeleccionado, setCampoSeleccionado] = useState(null);
+  const [mostrarNuevoCulto, setMostrarNuevoCulto] = useState(false);
+  const [nombreNuevoCulto, setNombreNuevoCulto] = useState("");
+  const [cargandoInicial, setCargandoInicial] = useState(true);
+  
+  const [dialogo, setDialogo] = useState({ visible: false, title: "", message: "", isDangerous: false, onConfirm: () => {} });
 
-  const router = useRouter(); // 👈 inicializar router
-
-  // Cargar programa guardado
   useEffect(() => {
-    const cargarPrograma = async () => {
-      const guardado = await AsyncStorage.getItem(`programa_${programaSeleccionado}`);
-      if (guardado) {
-        setLiturgia(JSON.parse(guardado));
+    const inicializar = async () => {
+      const savedCultos = await AsyncStorage.getItem("cultos_disponibles_v3");
+      if (savedCultos) {
+        const parsed = JSON.parse(savedCultos);
+        setCultos(parsed);
+        await cargarProgramaDelCulto(parsed[0]);
       } else {
-        setLiturgia([]);
+        await cargarProgramaDelCulto("Culto Dominical");
       }
+      setCargandoInicial(false);
     };
-    cargarPrograma();
-  }, [programaSeleccionado]);
+    inicializar();
+  }, []);
 
-  // Guardar programa
-  const guardarPrograma = async () => {
-    await AsyncStorage.setItem(`programa_${programaSeleccionado}`, JSON.stringify(liturgia));
-    alert("✅ Programa guardado en el dispositivo");
-  };
-
-  // Limpiar programa
-  const limpiarPrograma = async () => {
-    setLiturgia([]);
-    await AsyncStorage.removeItem(`programa_${programaSeleccionado}`);
-    alert("🧹 Programa limpiado, liturgia en blanco");
-  };
-// Buscar himnos/cánticos
-const buscar = (texto: string) => {
-  setBusqueda(texto);
-  if (texto.trim() === "") {
-    setResultados([]);
-    return;
-  }
-  const query = texto.toLowerCase();
-
-  const himnos = data.himnos.filter(
-    (h) =>
-      h.id?.toString().toLowerCase().includes(query) ||
-      h.titulo?.toLowerCase().includes(query) ||
-      h.estrofas?.some((e) => e?.toLowerCase().includes(query))
-  );
-
-  const canticos = data.canticos.filter(
-    (c) =>
-      c.id?.toString().toLowerCase().includes(query) ||
-      c.titulo?.toLowerCase().includes(query) ||
-      c.estrofas?.some((e) => e?.toLowerCase().includes(query))
-  );
-
-  setResultados([...himnos, ...canticos]);
-};
-
-
-  // Asignar himno/cántico (máximo 4)
-  const asignarElemento = (item) => {
-    if (campoSeleccionado !== null) {
-      const nuevaLiturgia = [...liturgia];
-      const campo = nuevaLiturgia[campoSeleccionado];
-
-      if (campo.seleccionados.length < 4) {
-        campo.seleccionados.push({ id: item.id, titulo: item.titulo });
-        setLiturgia(nuevaLiturgia);
-      }
-      setBusqueda("");
-      setResultados([]);
-      setCampoSeleccionado(null);
+  const cargarProgramaDelCulto = async (nombre) => {
+    const guardado = await AsyncStorage.getItem(`programa_v3_${nombre}`);
+    if (guardado) {
+      setLiturgia(JSON.parse(guardado));
+    } else {
+      const plantillaDefault = JSON.parse(JSON.stringify(MOMENTOS_PLANTILLA));
+      setLiturgia(plantillaDefault);
+      await AsyncStorage.setItem(`programa_v3_${nombre}`, JSON.stringify(plantillaDefault));
     }
   };
 
-  // Eliminar himno
-  const eliminarElemento = (campoIndex, himnoIndex) => {
+  // --- GESTIÓN DE CULTOS (AÑADIR / ELIMINAR) ---
+  const handleAgregarCulto = async () => {
+    if (!nombreNuevoCulto.trim()) return;
+    const nuevaLista = [...cultos, nombreNuevoCulto.trim()];
+    setCultos(nuevaLista);
+    await AsyncStorage.setItem("cultos_disponibles_v3", JSON.stringify(nuevaLista));
+    setProgramaSeleccionado(nombreNuevoCulto.trim());
+    const plantillaDefault = JSON.parse(JSON.stringify(MOMENTOS_PLANTILLA));
+    setLiturgia(plantillaDefault);
+    await AsyncStorage.setItem(`programa_v3_${nombreNuevoCulto.trim()}`, JSON.stringify(plantillaDefault));
+    setNombreNuevoCulto("");
+    setMostrarNuevoCulto(false);
+  };
+
+  const handleEliminarCulto = (nombre) => {
+    if (cultos.length <= 1) {
+      Alert.alert("Error", "Debe haber al menos un programa en la lista.");
+      return;
+    }
+
+    Alert.alert(
+      "Eliminar Culto",
+      `¿Deseas eliminar "${nombre}" y toda su programación?`,
+      [
+        { text: "Cancelar", style: "cancel" },
+        {
+          text: "Eliminar",
+          style: "destructive",
+          onPress: async () => {
+            const filtrados = cultos.filter(c => c !== nombre);
+            await AsyncStorage.setItem("cultos_disponibles_v3", JSON.stringify(filtrados));
+            await AsyncStorage.removeItem(`programa_v3_${nombre}`);
+            
+            setCultos(filtrados);
+            
+            if (programaSeleccionado === nombre) {
+              setProgramaSeleccionado(filtrados[0]);
+              await cargarProgramaDelCulto(filtrados[0]);
+            }
+          }
+        }
+      ]
+    );
+  };
+
+  // --- GESTIÓN DE LITURGIA (HIMNOS Y SECCIONES) ---
+  const guardarPrograma = async () => {
+    await AsyncStorage.setItem(`programa_v3_${programaSeleccionado}`, JSON.stringify(liturgia));
+    setDialogo({ visible: true, title: "✅ Éxito", message: "Programa guardado correctamente.", isDangerous: false, onConfirm: () => setDialogo({ ...dialogo, visible: false }) });
+  };
+
+  const handleResetPlantilla = () => {
+    Alert.alert(
+      "Reiniciar",
+      "¿Restaurar plantilla original?",
+      [
+        { text: "No", style: "cancel" },
+        {
+          text: "Sí",
+          style: "destructive",
+          onPress: () => {
+            const plantillaDefault = JSON.parse(JSON.stringify(MOMENTOS_PLANTILLA));
+            setLiturgia(plantillaDefault);
+          }
+        }
+      ]
+    );
+  };
+
+  const asignarElemento = (item) => {
     const nuevaLiturgia = [...liturgia];
-    nuevaLiturgia[campoIndex].seleccionados.splice(himnoIndex, 1);
+    nuevaLiturgia[campoSeleccionado] = {
+      ...nuevaLiturgia[campoSeleccionado],
+      seleccionados: [...nuevaLiturgia[campoSeleccionado].seleccionados, { id: item.id, titulo: item.titulo }]
+    };
     setLiturgia(nuevaLiturgia);
+    setCampoSeleccionado(null);
+    setBusqueda("");
+    setResultados([]);
   };
 
-  // Agregar campo
-  const agregarCampo = () => {
-    const nuevaLiturgia = [...liturgia, { nombreCampo: "Nuevo Campo", seleccionados: [] }];
-    setLiturgia(nuevaLiturgia);
-  };
-
-  // Eliminar campo
-  const eliminarCampo = (index) => {
+  const eliminarElemento = (mIdx, hIdx) => {
     const nuevaLiturgia = [...liturgia];
-    nuevaLiturgia.splice(index, 1);
+    const nuevosSeleccionados = nuevaLiturgia[mIdx].seleccionados.filter((_, i) => i !== hIdx);
+    nuevaLiturgia[mIdx] = { ...nuevaLiturgia[mIdx], seleccionados: nuevosSeleccionados };
     setLiturgia(nuevaLiturgia);
   };
 
-  // Renombrar campo
-  const renombrarCampo = (index, nuevoNombre) => {
-    const nuevaLiturgia = [...liturgia];
-    nuevaLiturgia[index].nombreCampo = nuevoNombre;
-    setLiturgia(nuevaLiturgia);
+  const eliminarSeccion = (idx) => {
+    const nueva = liturgia.filter((_, i) => i !== idx);
+    setLiturgia(nueva);
   };
 
-  // 👇 función para abrir modal con himno
+  const buscar = (texto) => {
+    setBusqueda(texto);
+    if (!texto.trim()) { setResultados([]); return; }
+    const query = texto.toLowerCase();
+    const h = (data.himnos || []).filter(x => x.id?.toString().includes(query) || x.titulo?.toLowerCase().includes(query));
+    const c = (data.canticos || []).filter(x => x.id?.toString().includes(query) || x.titulo?.toLowerCase().includes(query));
+    setResultados([...h, ...c].slice(0, 10));
+  };
 
-const abrirModal = (id) => {
-  router.push({ pathname: "/modal", params: { id } });
-};
-
- 
-
+  if (cargandoInicial) return null;
 
   return (
-    <KeyboardAvoidingView style={styles.container} behavior="padding">
-      <Text style={styles.title}>📖 Programar Liturgia</Text>
+    <LinearGradient colors={['#0F2027', '#203A43', '#2C5364']} style={styles.container}>
+      <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : undefined} style={{flex: 1}}>
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>📖 Programar</Text>
+        </View>
 
-      {/* Selector de tipo de programa */}
-      <View style={styles.selector}>
-        {["Culto Dominical", "Culto de Jóvenes", "Culto de Vigilia"].map((tipo) => (
-          <TouchableOpacity
-            key={tipo}
-            style={[
-              styles.button,
-              programaSeleccionado === tipo && { backgroundColor: "#4CAF50" },
-            ]}
-            onPress={() => setProgramaSeleccionado(tipo)}
-          >
-            <Text style={styles.buttonText}>{tipo}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-
-      {/* Lista editable de liturgia */}
-      <FlatList
-        data={liturgia}
-        keyExtractor={(_, index) => index.toString()}
-        renderItem={({ item, index }) => (
-          <View style={styles.card}>
-            {/* Nombre editable del campo */}
-            <TextInput
-              style={styles.campoNombre}
-              value={item.nombreCampo}
-              onChangeText={(texto) => renombrarCampo(index, texto)}
-            />
-
-            {/* Himnos seleccionados */}
-            {item.seleccionados.length === 0 ? (
-              <Text style={styles.titulo}>[Sin himnos]</Text>
-            ) : (
-              item.seleccionados.map((h, i) => (
-                <View key={i} style={styles.himnoRow}>
-                  {/* 👇 al tocar el himno, abrir modal */}
-                  <TouchableOpacity onPress={() => abrirModal(h.id)} style={{ flex: 1 }}>
-                    <Text style={styles.titulo}>
-                      {h.titulo} (ID: {h.id})
-                    </Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity onPress={() => eliminarElemento(index, i)}>
-                    <Ionicons name="trash-outline" size={20} color="red" />
-                  </TouchableOpacity>
-                </View>
-              ))
-            )}
-
-            {/* Buscador en la misma fila */}
-            {campoSeleccionado === index && (
-              <View style={styles.searchInline}>
-                <TextInput
-                  style={styles.input}
-                  placeholder="Buscar ID, nombre o palabra..."
-                  value={busqueda}
-                  onChangeText={buscar}
-                  autoFocus={true}
-                  editable={true}
-                />
-
-                {/* Botón cancelar búsqueda */}
+        {/* Selector de Cultos Mejorado */}
+        <View style={styles.selectorWrapper}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{paddingRight: 20}}>
+            {cultos.map((item) => (
+              <View key={item} style={styles.chipContainer}>
                 <TouchableOpacity
-                  style={styles.cancelButton}
-                  onPress={() => {
-                    setCampoSeleccionado(null);
-                    setBusqueda("");
-                    setResultados([]);
+                  style={[styles.chip, programaSeleccionado === item && styles.chipActive]}
+                  onPress={() => { 
+                    setProgramaSeleccionado(item); 
+                    cargarProgramaDelCulto(item); 
                   }}
                 >
-                  <Ionicons name="close-outline" size={20} color="red" />
-                  <Text style={{ color: "red", marginLeft: 5 }}>Cancelar</Text>
+                  <Text style={[styles.chipText, programaSeleccionado === item && styles.chipTextActive]}>{item}</Text>
                 </TouchableOpacity>
-
-                <FlatList
-                  data={resultados}
-                  keyExtractor={(item) => item.id}
-                  renderItem={({ item }) => (
-                    <TouchableOpacity
-                      style={styles.resultCard}
-                      onPress={() => asignarElemento(item)}
-                    >
-                      <Ionicons name="musical-notes-outline" size={20} color="#333" />
-                      <Text style={styles.resultText}>
-                        {item.id} - {item.titulo}
-                      </Text>
-                    </TouchableOpacity>
-                  )}
-                />
+                <TouchableOpacity style={styles.chipDelete} onPress={() => handleEliminarCulto(item)}>
+                  <Ionicons name="close-circle" size={18} color="#ff5252" />
+                </TouchableOpacity>
               </View>
-            )}
-
-            {/* Botón lupa */}
-            <TouchableOpacity onPress={() => setCampoSeleccionado(index)}>
-              <Ionicons name="search-outline" size={20} color="blue" />
+            ))}
+            <TouchableOpacity onPress={() => setMostrarNuevoCulto(true)} style={styles.btnAddMain}>
+              <Ionicons name="add-circle" size={34} color="#4db6ac" />
             </TouchableOpacity>
+          </ScrollView>
+        </View>
 
-            {/* Botón eliminar campo */}
-            <TouchableOpacity onPress={() => eliminarCampo(index)}>
-              <Ionicons name="close-circle-outline" size={20} color="red" />
-            </TouchableOpacity>
+        {/* Input para nuevo culto (aparece al presionar +) */}
+        {mostrarNuevoCulto && (
+          <View style={styles.inputNuevoCultoArea}>
+            <TextInput 
+              style={styles.inputNuevoCulto} 
+              placeholder="Nombre del Culto (ej. Culto de Jóvenes)" 
+              placeholderTextColor="#888" 
+              value={nombreNuevoCulto}
+              onChangeText={setNombreNuevoCulto}
+              autoFocus
+            />
+            <TouchableOpacity onPress={handleAgregarCulto} style={styles.btnConfirmCulto}><Ionicons name="checkmark" size={24} color="white" /></TouchableOpacity>
+            <TouchableOpacity onPress={() => setMostrarNuevoCulto(false)} style={styles.btnCancelCulto}><Ionicons name="close" size={24} color="white" /></TouchableOpacity>
           </View>
         )}
-      />
 
-      {/* Botón añadir campo */}
-      <TouchableOpacity style={styles.addButton} onPress={agregarCampo}>
-        <Ionicons name="add-circle-outline" size={24} color="white" />
-        <Text style={styles.addText}>Añadir Campo</Text>
-      </TouchableOpacity>
+        <FlatList
+          data={liturgia}
+          keyExtractor={(_, i) => i.toString()}
+          contentContainerStyle={{ paddingBottom: 150 }}
+          renderItem={({ item, index }) => (
+            <View style={styles.card}>
+              <View style={styles.cardHeader}>
+                <TextInput
+                  style={styles.campoNombre}
+                  value={item.nombreCampo}
+                  onChangeText={(t) => {
+                    const n = [...liturgia]; n[index].nombreCampo = t; setLiturgia(n);
+                  }}
+                />
+                <TouchableOpacity onPress={() => eliminarSeccion(index)}>
+                  <Ionicons name="trash-outline" size={20} color="#ff5252" />
+                </TouchableOpacity>
+              </View>
 
-      {/* Botones guardar y limpiar */}
-      <View style={{ flexDirection: "row", justifyContent: "space-around", marginTop: 20 }}>
-        <TouchableOpacity style={styles.saveButton} onPress={guardarPrograma}>
-          <Ionicons name="save-outline" size={24} color="white" />
-          <Text style={styles.saveText}>Guardar</Text>
-        </TouchableOpacity>
+              {item.seleccionados.map((h, hIdx) => (
+                <View key={hIdx} style={styles.himnoItem}>
+                  <Text style={styles.himnoText}><Text style={{color: '#4db6ac', fontWeight: 'bold'}}>{h.id}</Text> - {h.titulo}</Text>
+                  <TouchableOpacity onPress={() => eliminarElemento(index, hIdx)}>
+                    <Ionicons name="remove-circle" size={22} color="#ffab40" />
+                  </TouchableOpacity>
+                </View>
+              ))}
 
-        <TouchableOpacity style={styles.clearButton} onPress={limpiarPrograma}>
-          <Ionicons name="trash-outline" size={24} color="white" />
-          <Text style={styles.clearText}>Limpiar</Text>
-        </TouchableOpacity>
-      </View>
-    </KeyboardAvoidingView>
+              {campoSeleccionado === index ? (
+                <View style={styles.searchBox}>
+                  <TextInput style={styles.searchInput} placeholder="Buscar por número o título..." placeholderTextColor="#666" value={busqueda} onChangeText={buscar} autoFocus />
+                  {resultados.map(res => (
+                    <TouchableOpacity key={res.id} style={styles.resItem} onPress={() => asignarElemento(res)}>
+                      <Text style={{color: '#ddd'}}>{res.id} - {res.titulo}</Text>
+                    </TouchableOpacity>
+                  ))}
+                  <TouchableOpacity onPress={() => {setCampoSeleccionado(null); setBusqueda("");}}><Text style={styles.cancelText}>Cerrar</Text></TouchableOpacity>
+                </View>
+              ) : (
+                <TouchableOpacity style={styles.btnAdd} onPress={() => setCampoSeleccionado(index)}>
+                  <Ionicons name="search" size={14} color="#4db6ac" />
+                  <Text style={styles.btnAddText}> BUSCAR HIMNO</Text>
+                </TouchableOpacity>
+              )}
+            </View>
+          )}
+          ListFooterComponent={
+            <TouchableOpacity style={styles.btnFooterAdd} onPress={() => setLiturgia([...liturgia, { nombreCampo: "NUEVO MOMENTO", seleccionados: [] }])}>
+              <Ionicons name="add" size={20} color="#4db6ac" />
+              <Text style={{color: '#4db6ac', fontWeight: 'bold'}}> AÑADIR SECCIÓN</Text>
+            </TouchableOpacity>
+          }
+        />
+
+        <View style={styles.footer}>
+          <TouchableOpacity style={styles.btnSave} onPress={guardarPrograma}>
+            <Ionicons name="save" size={20} color="white" /><Text style={styles.btnText}> GUARDAR</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btnClear} onPress={handleResetPlantilla}>
+            <Ionicons name="refresh" size={20} color="white" /><Text style={styles.btnText}> PLANTILLA</Text>
+          </TouchableOpacity>
+        </View>
+      </KeyboardAvoidingView>
+
+      <ConfirmDialog visible={dialogo.visible} title={dialogo.title} message={dialogo.message} onConfirm={dialogo.onConfirm} onCancel={() => setDialogo({...dialogo, visible: false})} isDangerous={dialogo.isDangerous} />
+    </LinearGradient>
   );
 }
 
-
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, backgroundColor: "#f5f5f5" },
-  title: { fontSize: 24, fontWeight: "bold", textAlign: "center", marginBottom: 20 },
-  selector: { flexDirection: "row", justifyContent: "space-around", marginBottom: 20 },
-  button: { padding: 10, borderRadius: 8, backgroundColor: "#ccc" },
-  buttonText: { color: "white", fontWeight: "600" },
-  card: {
-    backgroundColor: "#fff",
-    padding: 10,
-    borderRadius: 8,
-    marginBottom: 10,
-    elevation: 2,
-  },
-  campoNombre: {
-    borderBottomWidth: 1,
-    borderColor: "#ccc",
-    fontSize: 16,
-    fontWeight: "600",
-    marginBottom: 10,
-    elevation: 2,
-  },
-  orden: { fontWeight: "600", marginBottom: 5 },
-  titulo: { flex: 1, marginLeft: 10 },
-  himnoRow: { flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
-  searchInline: { marginTop: 10 },
-  input: {
-    borderWidth: 1,
-    borderColor: "#ccc",
-    padding: 8,
-    borderRadius: 8,
-    marginBottom: 10,
-    backgroundColor: "white",
-  },
-  resultCard: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#e0e0e0",
-    padding: 8,
-    borderRadius: 8,
-    marginBottom: 6,
-  },
-  resultText: { marginLeft: 10, fontSize: 14 },
-    saveButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#4CAF50",
-    padding: 12,
-    borderRadius: 10,   // corregido
-    justifyContent: "center",
-  },
-  clearButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#f44336",
-    padding: 12,
-    borderRadius: 10,   // corregido
-    justifyContent: "center",
-  },
-  saveText: { color: "white", fontSize: 18, fontWeight: "600", marginLeft: 8 },
-  clearText: { color: "white", fontSize: 18, fontWeight: "600", marginLeft: 8 },
-});
+  container: { flex: 1 },
+  header: { marginTop: 60, paddingHorizontal: 25, marginBottom: 10 },
+  headerTitle: { fontSize: 26, fontWeight: "bold", color: "#E0E0E0" },
+  
+  // Selector de Cultos
+  selectorWrapper: { height: 70, marginBottom: 10 },
+  chipContainer: { flexDirection: 'row', alignItems: 'center', marginLeft: 20 },
+  chip: { paddingVertical: 8, paddingHorizontal: 18, borderRadius: 20, backgroundColor: "#ffffff12", borderWidth: 1, borderColor: '#ffffff20' },
+  chipActive: { backgroundColor: "#4db6ac", borderColor: '#4db6ac' },
+  chipText: { color: "#888", fontSize: 13 },
+  chipTextActive: { color: "white", fontWeight: "bold" },
+  chipDelete: { marginLeft: -12, marginTop: -20, backgroundColor: 'white', borderRadius: 10 },
+  btnAddMain: { marginLeft: 15, justifyContent: 'center' },
+
+  // Area de nuevo culto
+  inputNuevoCultoArea: { flexDirection: 'row', paddingHorizontal: 20, marginBottom: 15, gap: 8 },
+  inputNuevoCulto: { flex: 1, backgroundColor: '#000', color: 'white', borderRadius: 10, paddingHorizontal: 15, borderBottomWidth: 1, borderBottomColor: '#4db6ac' },
+  btnConfirmCulto: { backgroundColor: '#2e7d32', padding: 10, borderRadius: 10 },
+  btnCancelCulto: { backgroundColor: '#c62828', padding: 10, borderRadius: 10 },
+
+  card: { backgroundColor: "#ffffff08", marginHorizontal: 20, borderRadius: 18, padding: 18, marginBottom: 15, borderWidth: 1, borderColor: "#ffffff10" },
+  cardHeader: { flexDirection: "row", justifyContent: "space-between", alignItems: 'center', marginBottom: 15 },
+  campoNombre: { fontSize: 16, color: "#4db6ac", fontWeight: "bold", flex: 1, borderBottomWidth: 0.5, borderBottomColor: '#4db6ac33' },
+  himnoItem: { flexDirection: "row", backgroundColor: "#00000040", padding: 12, borderRadius: 12, marginBottom: 8, alignItems: "center", justifyContent: 'space-between' },
+  himnoText: { color: "#eee", fontSize: 14, flex: 1 },
+  btnAdd: { flexDirection: "row", justifyContent: "center", alignItems: 'center', marginTop: 10 },
+  btnAddText: { color: "#4db6ac", fontSize: 12, fontWeight: 'bold' },
+  
+  searchBox: { backgroundColor: "#000", borderRadius: 12, padding: 15, marginTop: 10 },
+  searchInput: { color: "white", borderBottomWidth: 1, borderColor: "#4db6ac", marginBottom: 12, paddingVertical: 5 },
+  resItem: { paddingVertical: 12, borderBottomWidth: 0.5, borderBottomColor: "#333" },
+  cancelText: { color: '#ff5252', textAlign: 'center', marginTop: 10, fontSize: 12, fontWeight: 'bold' },
+  
+  btnFooterAdd: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginVertical: 20, padding: 15, borderStyle: 'dashed', borderWidth: 1, borderColor: '#4db6ac', marginHorizontal: 20, borderRadius: 15 },
+  
+  footer: { position: "absolute", bottom: 30, left: 20, right: 20, flexDirection: 'row', gap: 12 },
+  btnSave: { flex: 2, backgroundColor: "#2e7d32", flexDirection: "row", padding: 18, borderRadius: 18, justifyContent: "center", alignItems: 'center', elevation: 5 },
+  btnClear: { flex: 1, backgroundColor: "#455a64", flexDirection: "row", padding: 18, borderRadius: 18, justifyContent: "center", alignItems: 'center' },
+  btnText: { color: "white", fontWeight: "bold", marginLeft: 8 },
+
+  modalOverlay: { flex: 1, backgroundColor: "rgba(0,0,0,0.85)", justifyContent: "center", alignItems: "center" },
+  dialogContainer: { backgroundColor: "#1A1A1A", borderRadius: 20, padding: 25, width: "85%", borderWidth: 1, borderColor: "#333" },
+  dialogTitle: { fontSize: 20, color: "#4db6ac", fontWeight: "bold", marginBottom: 10 },
+  dialogMessage: { color: "#bbb", marginBottom: 25, fontSize: 16 },
+  dialogButtonRow: { flexDirection: "row", justifyContent: "flex-end", gap: 15 },
+  dialogBtnCancel: { padding: 10 },
+  dialogBtnConfirm: { backgroundColor: "#2e7d32", paddingHorizontal: 25, paddingVertical: 12, borderRadius: 12 },
+  dialogBtnDangerous: { backgroundColor: "#c62828" },
+  dialogBtnText: { color: "white", fontWeight: "bold" }
+}); 

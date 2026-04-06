@@ -734,7 +734,29 @@
         "Take juchat k’omachatätwa\nChuymjam ucia yatista;\nAlmajirajj samaran j churi,\nSuma wjupampi jacanäjj."
       ],
       "coro": "Yatist nayajj, yatist nayajj\nWilapampi alatäjta,\nYatist nayajj, yatist nayajj\nAlajjipacharu sarascat."
-    },
+    },{
+    "id": "45a",
+    "titulo": "GRANDE GOZO HAY EN MI ALMA (Sol)",
+    "estrofas": [
+      "Grande gozo hay en mi alma hoy,\nPues Jesús conmigo está;\nY su paz que ya gozando estoy\nPor siempre durará.",
+      "Hay un canto en mi alma hoy,\nMelodías a mi Rey;\nEn su amor feliz y libre soy\nY salvo por la fe.",
+      "Paz divina hay en mi alma hoy,\nPorque Cristo me salvó;\nLas cadenas rotas ya están,\nJesús me libertó.",
+      "Gratitud hay en mi alma hoy,\nY alabanzas a Jesús;\nPor su gracia a la gloria voy\nGozándome en la luz."
+    ],
+    "coro": "Grande gozo, ¡Cuán hermoso!\nPaso todo el tiempo bien feliz;\nPorque veo de Cristo la sonriente faz\nGrande gozo siento en mí."
+  },
+  {
+    "id": "45b",
+    "titulo": "JACH'A CUSISIÑWA JICJJATTA (Sol)",
+    "estrofas": [
+      "Jach'a cusisiñwa jicjjatta,\nCristona thaquipana;\nWiñayaw Cristompejj cusisï,\nJupan jac'apana.",
+      "Mä k'ochuw chuymajjan utjitu,\nKollan Awquejjataqui;\nMunasiñapan khespiyitu,\nIyawsatajj laycu.",
+      "Chuymajjajj samarañ jicjjati,\nCristoru maqhatasin;\nCadenas t'akasiwayiwa,\nCriston ch'amapampi.",
+      "Criston munasiñap catokta,\nJuparuw k'ochuwayä;\nAlajjpacharuwa sarascta,\nCriston khanapampi."
+    ],
+    "coro": "Jach'a cusisiñwa jicjjatta,\nChuymajjatac take uruna;\nCriston suma ajanupa uñcatä,\nCusisiñaw nayatac.",
+    "nota": "Trad. F. L. Ch."
+  },
     {
       "id": "46a",
       "titulo": "VEN A CRISTO, VEN A CRISTO (Sol)",
@@ -752,6 +774,7 @@
       ],
       "coro": "Jutamaña Criston ucar,\nJupajj suyasctam;\nWiñay jacañ almamatac\nJupan jicjjatat."
     },
+ 
   {
     "id": "47a",
     "titulo": "HALLÉ UN BUEN AMIGO (Fa)",
@@ -1009,6 +1032,47 @@
       "Waranak waranak angelanacawa\nDiosarojj k’ochupjjje.\nJupanacamppi chicaraqiwja\nJicjjatäjsini munta."
     ],
     "coro": "Alajjpacharuw sarascta,\nKori marcaruw sarascta\nWiñayataqui. (Bis)"
+  },{
+    "id": "63a",
+    "titulo": "NO MIREMOS ATRÁS (Re menor)",
+    "estrofas": [
+      "La mansión celestial de mi Dios y Señor,\nNunca terminará, pue: eterna será,\nMas mi hogar terrenal pronto disipará,\nComo sombra y neblina desvanecerá.",
+      "Para andar con Jesús y servirle a El,\nNecesario es cumplir con su gran voluntad.\nPor su muerte en la cruz, fortaleza nos dio.\nPues sigamos con fe al bendito Jesús.",
+      "Venceremos al mal, a la muerte y dolor.\nSólo en Cristo el Señor hay victoria y poder.\nEn los cielos con Dios viviremos sin fin,\nAlabando a Jesús por su gran salvación."
+    ],
+    "coro": "Sin mirar hacia atrás, ni volver a pecar;\nVamos pues con Jesús al hogar celestial. (Bis)",
+    "nota": "CALA 20"
+  },
+  {
+    "id": "63b",
+    "titulo": "JAN KHEPAR UÑTASA (Re menor)",
+    "estrofas": [
+      "Alajjpach marcajja, Diosan marcapawa.\nJan tucusquiriwa, wiñayataquiwa.\nCh’iwir uñtasita, urpur uñtasita,\nPasiriqiraquiw acapach marcajja.",
+      "Cristor arcasajja, arcañaw waquisi,\nMunañap lurasa, arsutap phokhasa.\nTake ch’amasampi jupar arcañani,\nCruzapar uñtasa, jutäwip suyt’asa.",
+      "Jiwar atipañas, juchar atipañas,\nCristonaquiw utji, jupaquiw ch’amani.\nTake chuymasampi, wawanacapajja,\nYuspagarañäni munasiñapata."
+    ],
+    "coro": "Jan khepar uñtasa, jan juchar cutt’asa,\nWaquisiw sarañajj alajjpach marcaru. (Bis)"
+  },
+  {
+    "id": "64a",
+    "titulo": "ERES TÚ MI SALVADOR (Re menor)",
+    "estrofas": [
+      "Qué glorioso es andar, hacia el cielo con Jesús.\nRoca de la eternidad, sólo en ti yo tengo fe.",
+      "Yo vivía en dolor, triste, herido, pobre, vil.\nMas mi bendito Jesús, me llevó a su redil.",
+      "Mientras haya de vivir, y al momento de morir,\nMis labios repetirán: \"Eres tú mi Salvador\"."
+    ],
+    "coro": "Cristo, tu inmenso amor, yo no puedo comprender;\nSolo sé que por tu amor, me salvaste del pecar. (Bis)",
+    "nota": "CALA 73, G. Z. Ch."
+  },
+  {
+    "id": "64b",
+    "titulo": "JUMAW KHESPIYASISTA (Re menor)",
+    "estrofas": [
+      "Alajjpachar sarañajj sinti sumapuniwa.\nCristor iyawsasaquiw, take chuymamp sarascsta.",
+      "Juchan nay jacascayät, llaquinacans phok't'ata.\nCristojj munasiñapamp tamaparuw irpjeteu.",
+      "Acapachan jaccasin, jiwañ catutan ucphas,\nNayajj saraquimawa: “Jumaw khespiyasista”."
+    ],
+    "coro": "Munasimajj Tatay, sinti musparcañawa,\nNaya juchan jakeru khespiyista ucata. (Bis)"
   },
   {
     "id": "65",
@@ -1255,510 +1319,26 @@
       "Wa ya ya ya ya, yupaychañäni\nNi ni ni ni ni, yupaychañäni\nLo lo lo lo lo, yupaychañäni\nRey Jesusaru. (Bis)"
     ],
     "autor": "Pablo Mamani J."
-  },
-  {
-    "id": "47a",
-    "titulo": "HALLÉ UN BUEN AMIGO (Fa)",
+  }, {
+    "id": "79a",
+    "titulo": "EL HOGAR CELESTIAL ES LIMPIO (Do)",
     "estrofas": [
-      "Hallé un buen amigo, mi amado Salvador.\nContaré lo que ha hecho él por mí:\nHallándome perdido, e indigno pecador\nMe salvó y ya me guarda para sí.\nMe salva del pecado, me guarda de Satán;\nPromete estar conmigo hasta el fin.\nEl consuela mi tristeza, me quita todo afán;\n¡Grandes cosas Cristo consumó por mí!",
-      "Jesús jamás me falta, jamás me dejará;\nEs mi fuerte y poderoso protector.\nDel mundo yo me aparto y toda vanidad,\nPara consagrar mi vida a mi Señor.\nSi el mundo me persigue, si sufro tentación,\nConfiando en Cristo puedo resistir.\nLa victoria me es segura, y elevo mi canción:\n¡Grandes cosas Cristo consumó por mí!",
-      "Yo sé que Jesucristo muy pronto volverá,\nY entre tanto me prepara un lugar\nEn casa de su Padre, mansión de luz y paz,\nDo el creyente fiel con él ha de morar.\nLlegando a la gloria, con él yo estaré;\nContemplaré su rostro, siempre allí.\nCon los santos redimidos gozoso cantaré:\n¡Grandes cosas Cristo consumó por mí!"
-    ]
-  },
-  {
-    "id": "47b",
-    "titulo": "MÄ SUMA AMIG JICJJATTA (Fa)",
-    "estrofas": [
-      "Mä suma amig jicjjatita, munata Jessusa,\nParlajjapjamaw cuntï lurqi nayar;\nChhaktatjja uñjasina, mä ñankha jucharar,\nKhespiyasiñ imituwap jupatac.\nJuman amparapt jupan khespiytu,\nJumampiw wiñayacasiñ munta;\nSuma tomar apapjjtam uca jaqeru,\nCristojj sintinpin nayattac luri.",
-      "Jesusajj nayampisquiwa, janiw jatytuantti,\nSuma jach’a qhuyapayasiwijjama;\nNankhata mistuytu, k’añuñamp jicarata,\nTatitjjurujjama nayaw arkañ munta.\nLlaquitan llakisipjjaraqui, janiw tukuspanti,\nSuma Cristojjjan amparas impiñistu;\nSuma Cristojjampejj wiñay sarnaqäta,\nCristojj sintinpin nayattac luri.",
-      "Wasatta jutaniwa suma qamasirejja,\nArunacapawa yatijayasitu;\nArunacapawa utapän wawanacapjjasa,\n(Jesusajj) nayampis janq’u chuymampicha.\nAcapachanjja nayampis jacañani,\nTatayj Jesucristo, nayampiutajja;\nK’ochonacampiw wali yupaychasipjje,\nK’ocholjjampejj walipuni yupaychjje."
-    ]
-  },
-  {
-    "id": "48a",
-    "titulo": "SACRIFICIO VIVO (Re)",
-    "estrofas": [
-      "¿Buscas encontrar paz y descanso eterno?\n¿Acrecentar sientes la fe en Dios?\nTu alma y cuerpo es preciso dejar\nOfrendando cual sacrificio.",
-      "Caminar si quieres junto a tu maestro\nA ti mismo negarte debes.\nAsí mismo debes dejar por completo\nLos placeres del mundo atroz.",
-      "No hay medio para encontrar descanso,\nGozo, paz para tu corazón;\nLimpio de corazón y conciencia pura\nComunión tendremos con Cristo.",
-      "Sacrificio vivo ofrezcamos juntos,\nManteniéndonos en su senda.\nSabremos por tanto lo hermoso que es\nCaminar con nuestro Salvador."
+      "En el santo hogar donde vive Dios\nNo hay pecado allí, ni iniquidad.\nNo podrá entrar ningún pecador,\nTodo puro está delante de Dios.",
+      "El hogar de Dios santo y limpio está,\nNi un pecado hay, todo es bondad.\nHoy prepárate, tu alma limpia esté\nPara ir con Jesús al celeste hogar.",
+      "¿Por qué sigues tú en pecado vil?\nArrepiéntete de todo tu mal.\nCristo con su amor tu mal limpiará\nY podrás entrar al celeste hogar."
     ],
-    "coro": "En el sacrosanto altar te rendiste?\n¿Sin reserva te ofreciste o no?\nSolamente así es como hallarás\nPerdurable descanso y paz."
+    "coro": "Al hogar celestial, solo entrará\nEl que salvo está por Cristo el Señor.\nBusca hoy sin tardar esta salvación,\nDios con mucho amor te perdonará."
   },
   {
-    "id": "48b",
-    "titulo": "JACQUIR SACRIFICIO (Re)",
+    "id": "79b",
+    "titulo": "ALAJJPACHAJJ K'OMA MARCAWA (Do)",
     "estrofas": [
-      "¿Kollan samaraña jicjjtañ thaktati?\n¿Iyawsamäj jilasquiti?\nJanchimas, almamasa waquismat uchaña\nTatitum altaraparu.",
-      "Jumatejj munstajja Tatitump saraña\nÑankha churasinïfamawa;\nJan suyas maqhatäna munstajja\nChuymasam cussiñasipaja.",
-      "Janiw cuna tokes jicjjatañ utquiti\nChuymasam cussiñapajjja;\nAlt’at chuymasampijja apsusaquiwa\nSamarani jicjjatasipjjara.",
-      "Jacquir sacrificio loktasiñasamawa\nThaquipan sayt’añasaqui,\nUcat yäñtïni sinti sumätapajja\nTatitum cayupanacanjja."
+      "Janipuniwa alajjpacharojj\nCuna k'añusa mantcanitejja.\nJucharar jakejj janiw mantcanit\nSuma Diosana marcaparojja.",
+      "Alajjpachajja k'oma marcawa,\nJaniw ucanjja juchajj utjqquiti.\nK'oma chuymampi jumajj suyt'amay\nDiosan marcapar puriñataqui.",
+      "Cunapachcamas juchan sarnakät,\nK'omachasimay juchanacammat.\nCristo Tatitojj k'omachañ muntam\nJupan marcapar mantañataqui."
     ],
-    "coro": "Diosan kollan altaraparojj purtati,\nMaypacha catuyasti.\nUqham lurasquiww samaran uñt’äta\nMunasini bendicionanacsa."
-  },
-  {
-    "id": "49a",
-    "titulo": "A JESUCRISTO VEN SIN TARDAR (Si bemol)",
-    "estrofas": [
-      "A Jesucristo ven sin tardar,\nQue entre nosotros hoy él está;\nY te convida con dulce afán,\nTierno diciendo: \"Ven\".",
-      "Su voz escucha sin vacilar,\nY grato acepta lo que hoy te da;\nTal vez mañana no habrá lugar,\nNo te detengas, ven."
-    ],
-    "coro": "¡Oh cuán grata nuestra reunión,\nCuando allá, Señor, en tu mansión,\nContigo estemos en comunión\nGozando eterno bien!"
-  },
-  {
-    "id": "49b",
-    "titulo": "TATITUR JUTAM JICHHÜRPACHA (Si bemol)",
-    "estrofas": [
-      "Tatitur jutam jichhürpacha,\nJupajj jiwas taypinquiwa,\nJawssaracamat suma arupamp,\n\"Nayar jutam\" sasa.",
-      "Amuyamaya, jupaqaïwa\nLlaquit chuymama samaranjja.\nJuman asquiñam munasawa,\n\"Nayar jutam\" sistam.\nTake chuymampi arup ist’am,\nKhespiyasiñap catokamaya,\nJupan chuymampi arcoñäni,\nK’omacht chuymamajjampi."
-    ],
-    "coro": "Cunj sumanis jicjjatäsinañj,\nAlajjpacha suma marcarna;\nTatittump uñt’añäni,\nWiñay cusiña."
-  },
-  {
-    "id": "50a",
-    "titulo": "SALVADOR, A TI ME RINDO (Re)",
-    "estrofas": [
-      "Salvador, a ti me rindo,\nY obedezco sólo a ti;\nMi guiador, mi fortaleza,\nTodo encuentra mi alma en ti.\nYo me rindo a ti,\nYo me rindo a ti;\nMis flaquezas y pecados\nTodo traigo a ti.",
-      "A tus pies yo deposito\nMi riqueza, mi placer,\nQue tu Espíritu me llene\nY de ti sienta el poder.",
-      "Tu bondad será la historia\nQue predique por doquier;\nY tu amor inagotable\nSerá siempre mi querer.",
-      "¡Oh qué gozo encuentro en Cristo!\n¡Cuánta paz para mi alma da!\nY a su causa me consagro,\nY su amor, mi amor será."
-    ]
-  },
-  {
-    "id": "50b",
-    "titulo": "TAKE CHUYMAW CRISTO ALCASTMA (Re)",
-    "titulo_alt": "TAKE CHUYMAW CRISTO ALCATSMA",
-    "estrofas": [
-      "Take chuymaw suma Cristo,\nNayajj jumar alcatsma;\nJumaw almajjar ch’amachta,\nThaqhejjans iparacta."
-    ]
-  },
-  {
-    "id": "51",
-    "titulo": "TATITOJJ JUTCAN UQHAJJA (Mi menor)",
-    "estrofas": [
-      ":Tatitojj jutcan ucapahajja\nAca orakejja qhattaniwa,\nUca uruw thakapjjanejjja\nJaniw qhitïs puedcaniti. (Bis)",
-      "CORO:\n:Uca urojja Dios Awquisajja\nJach’a ch’amamp uñtatasqui,\nKhespitanacanaw catokanï (Bis)\nCuna cussiñ uruquïni.\n\n:Qhà jach’a taripawi urunja\nJanipuniwa qhitïs yatcaniti,\nParlatasasa lurañanacsa\nUca uruquiw khananchatani. (Bis)"
-    ],
-    "nota": "Conj. Manantial de Horeb"
-  },
-  {
-    "id": "52",
-    "titulo": "OH, YO QUIERO ANDAR CON CRISTO (Si bemol)",
-    "estrofas": [
-      "¡Oh! yo quiero andar con Cristo,\nQuiero oír su tierna voz,\nMeditar en su palabra,\nSiempre andar de él en pos.\nConsagrar a él mi vida,\nCumplir fiel su voluntad;\nY algún día con mi Cristo\nGozaré la claridad.",
-      "Oh! yo quiero andar con Cristo,\nÉl vivió en santidad;\nEn la Biblia yo lo leo,\nY yo sé que es la verdad,\nCristo era santo en todo,\nEl cordero de la cruz,\nY yo anhelo ser cristiano,\nSeguidor de mi Jesús.",
-      "¡Oh! yo quiero andar con Cristo,\nDe mi senda él es la luz,\nDejaré el perverso mundo\nY cargar aquí mi cruz.\nEste mundo nada ofrece,\nCristo ofrece salvación;\nY es mi única esperanza\nGozar vida eterna en Sión."
-    ],
-    "coro": "Oh, sí, yo quiero andar con Cristo!\n¡Oh, sí, yo quiero vivir con Cristo!\n¡Oh, sí, yo quiero morir con Cristo!\nQuiero serle un testigo fiel."
-  },
-  {
-    "id": "53",
-    "titulo": "CRISTO ESTÁ BUSCANDO OBREROS (La bemol)",
-    "estrofas": [
-      "Cristo está buscando obreros hoy\nQue quieran ir con él;\n¿Quién dirá: \"Señor contigo voy,\nYo quiero serte fiel\"?",
-      "Cristo quiere mensajeros hoy\nQue anuncien su verdad;\n¿Quién dirá: \"Señor yo listo estoy,\nHaré tu voluntad\"?",
-      "Hay lugar si quieres trabajar\nDe Cristo en la labor;\nPuedes de su gloria al mundo hablar,\nDe su bondad y amor.",
-      "¿Vives ya salvado por Jesús,\nSu amor conoces ya?\nHabla, pues, anuncia que en la luz\n¡De Cristo vives ya!"
-    ],
-    "coro": "¡Oh! Señor, es mucha la labor,\nY obreros faltan ya;\nDanos luz, ardiente fe y valor,\nY obreros siempre habrá."
-  },
-  {
-    "id": "54a",
-    "titulo": "NO TE DÉ TEMOR (Fa)",
-    "estrofas": [
-      "No te dé temor hablar de Cristo;\nNunca, nunca, nunca, nunca;\nEs tu amante Salvador;\nNunca, pues, te dé temor.",
-      "No te dé temor hacer por Cristo\nCuanto de tu parte está;\nObra con amor, fe y constancia;\nTus trabajos premiará.",
-      "No te dé temor sufrir por Cristo\nLos reproches o el dolor;\nSufre con amor tus pruebas todas,\nCual sufrió tu Salvador.",
-      "No te dé temor morir por Cristo;\nVida, vía y verdad es él;\nÉl te llevará con su ternura\nA su célico vergel."
-    ],
-    "coro": "No te dé temor, no te dé temor,\nNunca, nunca, nunca, nunca;\nEs tu amante Salvador;\nNunca, pues, te dé temor."
-  },
-  {
-    "id": "54b",
-    "titulo": "JAN AJJSARAMTI CRISTOT PARLAÑA (Fa)",
-    "estrofas": [
-      "Jan ajjsaramti Cristot parlaña,\nC'ajayam jupan khanap;\nKhespiyimirt khanancharaquim\nSapür jacañamppi.",
-      "Jan ajjsaramti, jan ajjsaramti\nTatitu parlaña;\nJaniquy ajjsaramti,\nMunasir khespiyiruw."
-    ],
-    "coro": "Jan ajjsaramti Cristot lurañ\nCunatejj waquisnï;\nLuram munapñtake chuymaampi,\nLuräwimajj asquinïw."
-  },
-  {
-    "id": "55a",
-    "titulo": "DULCE ORACIÓN (Re)",
-    "estrofas": [
-      "¡Dulce oración, dulce oración,\nQue del cuidado terrenal\nSabes llevar mi corazón,\nHasta el buen Padre celestial!\n¡Oh! cuántas veces tuve en ti\nAuxilio en ruda tentación,\nY cuántos bienes recibí\nPor tu valor, dulce oración!",
-      "Dulce oración, dulce oración,\nAl trono excelso de bondad\nElevarás mi petición,\nHecha con labios de verdad;\nSerá mi ruego oído allí,\nY la divina bendición\nEn abundancia sobre mí\nDescenderá, dulce oración.",
-      "Dulce oración, dulce oración,\nQue aliento y gozo al alma das;\nEn esta tierra de aflicción\nConsuelo siempre me serás,\nHasta el momento en que diré\nAdiós al mundo pecador,\nVolando entonces llegaré\nAl lado de mi Salvador."
-    ]
-  },
-  {
-    "id": "55b",
-    "titulo": "MOJJSA ORACIÓN (Re)",
-    "estrofas": [
-      "Mojjsa oración, mojjsa oración,\nAcapachanijja ch’amäwita;\nChuymajjjsa apartactawa\nAlajjpach Dios Awquejjjaru.\nSapa cutiw jumajj nayar\nQhuyapayisat yant’ancana,\nWalja asquinacsa catokta\nJumpjama, mojjsa oración.",
-      "Mojjsa oración, mojjsa oración,\nSinti munasir Apun ucar\nMayisifjjjsa apartactawa\nJupan isch’uquipanacapta.\nChek arstutajt laycuwa\nAsqui suma bendicionan\nChuymjjamajja catokanijja\nAlajjpachat, mojjsa oración.",
-      "Mojjsa oración, mojjsa oración,\nJacañ saman chuymar churir;\nAca llaquisin oraken\nCussiña juman churitaw,\nCunapachatejj nayajj sâ,\nAca juchar marcaru;\nCristojjaruw nayajj sarascti,\nDiosampiquiw mojjsa oración."
-    ]
-  },
-  {
-    "id": "56",
-    "titulo": "TATAY, ACA CHUYMAJ K’OMACHITA (Fa menor)",
-    "estrofas": [
-      "Jach’a cancañamajj musparcaw Tatay\nK’oma cancañamés wiñayatajja.\nKollan Dios awqeja nayra sirvinir\nUca k’oma cancañ churaraqujtawa.\nK’omachitay Tata, fankha juchajjata,\nK’oma chuyma marcaru tuc’áyita. (Bis)",
-      "Kollan Ajayumamp chuymamjj phok’ita\nAsqui luräwinac jupanacajjawa.\nPaciencianïni munta, munasiñampini\nQhuyapayasiñampi, perdon chuymani.\nK’omachitay Tata, suma walmthapi,\nAsqui cancañamampi phokh’ita. (Bis)",
-      "Janiw qhitis Tatay, jan k’oma chuymampej\nKollan ajmunjama wiñayatäjjja;\nAsquin jakenacaru amparañampi\nWiñayaraqawwij jumamp jacapjjani.\nK’omachitay Tata, fankha juchajjata\nK’oma chuyma marcaru tuc’ayita. (Bis)"
-    ]
-  },
-  {
-    "id": "57",
-    "titulo": "HIMNO A LA ALEGRÍA (Mi)",
-    "estrofas": [
-      "Escucha hermano\nLa canción de la alegría\nEl canto alegre\nDel que espera un nuevo día.",
-      "Si en tu camino\nSólo existe la tristeza\nY el llanto amargo\nDe la soledad completa.",
-      "Si es que no encuentras\nLa alegría en esta tierra\nBúscala hermano\nMás allá de las estrellas."
-    ],
-    "coro": "Ven, canta, sueña cantando\nVive soñando el nuevo sol,\nEn que los hombres\nVolverán a ser hermanos."
-  },
-  {
-    "id": "58a",
-    "titulo": "FIRMES Y ADELANTE (274 H.S.E.)",
-    "estrofas": [
-      "Firmes y adelante,\nHuestes de la fe,\nSin temor alguno,\nQue Jesús nos ve.\nJefe soberano,\nCristo al frente va,\nY la regia enseña\nTremolando está.",
-      "Al sagrado nombre\nDe nuestro Adalid,\nTiembla el enemigo\nY huye de la lid.\nNuestra es la victoria,\nDad a Dios loor;\nY oigalo el averno,\nLleno de pavor."
-    ],
-    "coro": "Firmes y adelante,\nHuestes de la fe,\nSin temor alguno\nQue Jesús nos ve."
-  },
-  {
-    "id": "58b",
-    "titulo": "CH’AMAMP SARANTANÄNI (274 H.S.E.)",
-    "estrofas": [
-      "Ch’amamp sarantanäni\nDiosan arquiri tama,\nJan cunas ajjsarasa,\nCristompi tantanwa,\nJach’a irpasasti\nNiyaw nayranqui,\nMuncañaw banderasa\nUcan laphapi.",
-      "Kollana irpasana\nSutip ist’asajj\nAlekaw qhathatini\nAjjsarañjama,\nAtipañäniwa,\nDiosar k’ochunäni,\nMankhapachajj uc ist’asajj\nWaliw qhathä."
-    ],
-    "coro": "Take ch’amamp sarantanäni\nCristian jakenaca,\nJan cunas ajjsarasa,\nCristompi tantanwa."
-  },
-  {
-    "id": "59a",
-    "titulo": "A LA GLORIA VOY (Sol)",
-    "estrofas": [
-      "Qué glorioso es andar hacia el cielo con Jesús,\n¿Quién me puede apartar de su eterno y fiel amor?\nDesde que le conocí en mi corazón hay luz,\n¿Quién me puede daño hacer? Cristo es mi Señor.",
-      "Con alegre corazón voy al cielo de mi Dios.\n¿Quién me puede apartar de su eterno y fiel amor?\nYo consagro a Él mi voz, su mensaje a proclamar.\n¿Quién me puede daño hacer? Cristo es mi Señor.",
-      "Cristo me espera allá, en su gloria celestial,\n¿Quién me puede apartar de su eterno y fiel amor?\nCara a cara le veré; ¡qué gran gozo eternal!\n¿Quién me puede daño hacer? Cristo es mi Señor.",
-      "Vamos juntos en la luz, caminando con Jesús,\n¿Quién me puede apartar de su eterno y fiel amor?\nAunque en este mundo vil encontremos pruebas mil,\n¿Quién me puede daño hacer? Cristo es el Señor."
-    ],
-    "coro": "A la gloria yo voy, con mi buen Señor;\nÉl las puertas abrirá, por su gran amor. (Bis)"
-  },
-  {
-    "id": "59b",
-    "titulo": "ALAJJPACHARUW SARASCTA (Sol)",
-    "estrofas": [
-      "Alajjpachar sarañajj sinti sumapunwa,\n¿Qhitirac apakestam Criston munasiñapat?\nCristor jicjjatäsajja almajjajs cussitaw\n¿Qhitirac camachitan? Cristow nayampi.",
-      "Alajjpach marcaruw jicjhjay sarascta,\nUcan nayajj cussiñ wiñayataqui. (Bis)",
-      "Alajjpachar marcaw cussiña sarascta,\n¿Qhitirac apakestam Criston munasiñapat?\nCristojjata parlaña janin nayajj ajjsarca,\n¿Qhitirac camachitan? Cristow nayampi.",
-      "Tatitioj suyasquitwa alajjpacha marcana,\n¿Qhitirac apakestan Criston munasiñapat?\nAca orakenwa uñisitas sarnakanta,\n¿Qhitirac camachitan? Cristompi tantanwa."
-    ]
-  },
-  {
-    "id": "60a",
-    "titulo": "GLORIOSA MORADA DE DIOS (Do menor)",
-    "estrofas": [
-      ":Glorioso pueblo de mi Señor\nEternamente allí brillará. (Bis)\n:Es la morada del Padre Dios\nPara sus hijos la preparó. (Bis)"
-    ],
-    "coro": "Vamos a ese hogar celestial,\nDejando todo afán y dolor. (Bis)"
-  },
-  {
-    "id": "60b",
-    "titulo": "TATITUSANA MARCAPA (Do menor)",
-    "estrofas": [
-      "Tatitusana marcapajja\nWiñayatqaw c’ajsanijja. (Bis)\nTatitusana utapajja\nTakteqauiwa waquichata. (Bis)",
-      "Uca marcur sarjñañäni,\nAcapchanjja llaquisinñäw. (Bis)\n¿Jach’añanacant saranscta?\nAlajjpachan cussiñsini. (Bis)",
-      "Aca oraken sarnakasajj\nWalja cutiwa llaquisinänjja,\nCunapachat sarjjani uca marcaja\nAlajjpachan cussisjjañani. (Bis)"
-    ],
-    "coro": "Uca marcaru sarjñañäni,\nAcapchanjja llaquisinänjja. (Bis)"
-  },
-  {
-    "id": "61a",
-    "titulo": "PRONTO CRISTO VOLVERÁ (Do menor)",
-    "estrofas": [
-      "Pronto volverá Cristo, el Rey de gloria,\nDel hogar eterno en las nubes vendrá.\nEsperemos pues, todos los salvados,\nSiendo perdonado todo nuestro mal.",
-      "Qué gozo será cuando Cristo vuelva\nLos que han muerto fieles tendrán felicidad.\nResucitarán de entre los muertos,\nY con nuevo cuerpo al Señor verán.",
-      "Y esperanza hay para los que viven\nDe regocijarse, transformados por Dios.\nTodos juntos con los resucitados\nVivirán con Cristo por la eternidad.",
-      "Pocos días más sufriremos pruebas,\nPenas y dolores en la vida aquí.\nCristo ya vendrá, pronto nos iremos\nAl hogar eterno junto a nuestro Dios."
-    ],
-    "coro": "Cuando Cristo vuelva al mundo,\nLas trompetas celestiales\nSonarán que Él ha llegado\nY a sus hijos fieles llevará. (Bis)"
-  },
-  {
-    "id": "61b",
-    "titulo": "NIYAW JUTANI KHESPIYIR CRISTOJJ (Do menor)",
-    "estrofas": [
-      "Niyaw jutani khespiyir Cristojjja,\nAlajjpach llliphiquir wiñay marcapata\nKhespitanacajj Tatit Jesusaru\nK’oma chuymasampi sarapjjani.",
-      "Cristojj jutcan ucapachajj\nTrumpetaw phust’asiniwa,\nCristojj sarakaninwa\nAjllit iglesiap aptasijera. (Bis)"
-    ],
-    "coro": "Cristojj jutcan ucapachajj\nTrumpetaw phust’asini,\nCristojj sarakaninwa\nAjllit iglesiap aptasini. (Bis)"
-  },
-  {
-    "id": "62a",
-    "titulo": "VOY A LA CIUDAD CELESTIAL (Re menor)",
-    "estrofas": [
-      "Nadie me podrá separar de Dios,\nNi de su presencia;\nCon los vencedores quisiera estar,\nY gozar con Cristo.",
-      "En el cielo, millares de ángeles,\nAlaban a Cristo.\nCon tal grupo de ángeles celestiales,\nCantaré a mi Cristo."
-    ],
-    "coro": "A la gloria eterna yo voy,\nA morar con Cristo el Señor,\nPor la eternidad. (Bis)"
-  },
-  {
-    "id": "62b",
-    "titulo": "QHITIRAC NAYAR APAKETASPA (Re menor)",
-    "estrofas": [
-      "Qhitrac nayar apaketsapa\nDiosan amparapat.\nAtïpjirïnc tapyin nayajja\nJicjjatäsini munta.",
-      "Waranak waranak angelanacawa\nDiosarojj k’ochupjjje.\nJupanacamppi chicaraqiwja\nJicjjatäjsini munta."
-    ],
-    "coro": "Alajjpacharuw sarascta,\nKori marcaruw sarascta\nWiñayataqui. (Bis)"
-  },
-  {
-    "id": "65",
-    "titulo": "CUSISIÑAQIW CHUYMAJJANQUI (Re menor)",
-    "estrofas": [
-      "Cusisiñaqiwa chuymajjan ujtitu\nJaniw korimpsa, kollkempis alasti,\nCristow wilapampi, cruzan alawayi\nUcat yupaychascta kollan situparu. (Bis)",
-      "K’ochusiñawqüiwa, chuymajjar jutitu\nChuymjjaw cussi, pankarar üñtata,\n:Cunats llaquisjjja, Cristow nayampisjjja\nJupaw chuymachitu, llaquisinänaca. (Bis)",
-      "Janïw mayjt’asimit munata jilata\nJaniw sapactti, Cristow juman juma,\nDiosan arupawa ch’amam tuc’ayistu\nCheka thaquipan sayt’añamata. (Bis)"
-    ]
-  },
-  {
-    "id": "66a",
-    "titulo": "LA NAVE EVANGELISTA (Fa)",
-    "estrofas": [
-      "La nave evangelista, boga, boga,\nLa nave evangelista\nBoga rumbo a Canaán.\nEl que embarcarse quiera, quiera, quiera, quiera;\nEl que embarcarse quiera,\nVenga, bienvenido, sí, será.",
-      "Con viento en popa vuelan, vuelan, vuelan, vuelan.\nCon viento en popa vuelan\nHacia aquel florido hogar.\nAlegres voces cantan, cantan, cantan, cantan.\nAlegres voces cantan\nHimnos de felicidad."
-    ],
-    "coro": "Gloria en las alturas!\nLos de a bordo cantan dulcemente\n¡Gloria en las alturas\nA nuestro capitán!"
-  },
-  {
-    "id": "66b",
-    "titulo": "EVANGELIST BOTEJJA (Fa)",
-    "estrofas": [
-      "Evangelist botejja sariw, sariwa;\nEvangelist botejja Canaanurawa sari.\nMantañni munirejja janc’ay mantanpan;\nBotijar mantanirejj suma catokañäniw.",
-      "Suma thayampiw sari, sari, sarasquiw;\nSuma thayampiw sari jach’a kota pampana.\nK’ochussaw sarapjjc, cussiwasa;\nWiñay jacaña k’ochu ajjsarcana kotana."
-    ],
-    "coro": "Gloria alajjpachana!\nBotijan mojjsa k’ochunac k’ochupjjje,\nGloria alajjpachana! Capitanasar."
-  },
-  {
-    "id": "67a",
-    "titulo": "POR FE CONTEMPLO REDENCIÓN (Mi bemol)",
-    "estrofas": [
-      "Por fe contemplo redención,\nLa fuente carmesí,\nJesús capaz es de salvar,\nSu vida dio por mí.",
-      "Mi vida entrego a mi Jesús,\nLas dudas ya se van;\nEl hombre viejo muerto está,\nEn Cristo vivo ya.",
-      "¡Cuán inefable gozo es,\nSaber que salvo soy!\nEntonizado está Jesús,\nEn este corazón."
-    ],
-    "coro": "La fuente sin igual hallé,\nDe vida y luz el manantial;\n¡Oh, gloria a Dios, me limpia a mí,\nMe limpia a mí, me limpia a mí!"
-  },
-  {
-    "id": "67b",
-    "titulo": "JACAN CHURIR SUMA PHUCH’U (Mi bemol)",
-    "estrofas": [
-      "Iyawsanämpiw úncáta, khespiyir Jesusar;\nMojjsa umjamaw jalasqui, pharjataraqujtam.",
-      "Jacañajjajat jalsur uma, jacan churir suma phuch’u;\n¡Gloria Diosaw jarekjetu, cuna suma Diosawajj!",
-      "Jacañajj churjita Jesusar, musphaña jchhantkatan;\nKhoru jupanajja jiwtaw machakar qupastaw."
-    ],
-    "coro": "Cusisipuntwa chuyumajjan, salvat ujjasisajja;\nTatitojj uqhamarqui chuymajjan cusisi."
-  },
-  {
-    "id": "68a",
-    "titulo": "EN JESUCRISTO MÁRTIR DE PAZ (Re)",
-    "estrofas": [
-      "En Jesucristo, mártir de paz,\nEn horas negras de tempestad,\nHallan las almas dulce solaz,\nGrato consuelo, felicidad.",
-      "En nuestras luchas, en el dolor,\nEn tristes horas de tentación,\nCalma le infundes, santo vigor,\nNuevos alientos al corazón.",
-      "Cuando en la lucha falta la fe\nY el alma vese desfallecer,\nCristo nos dice: \"Siempre os daré\nGracia divina, santo poder\"."
-    ],
-    "coro": "Gloria cantemos al Redentor\nQue por nosotros quiso morir;\nY que la gracia del Salvador\nSiempre dirija nuestro vivir."
-  },
-  {
-    "id": "68b",
-    "titulo": "JESUCRISTOWA SUMA KHANAJJ (Re)",
-    "estrofas": [
-      "JesuCristowa suma khanajj,\nLajja ch’amaca urunacan,\nTake jakejjja jupanacwa\nMojjsa cussiñ jicjjatapjjje.",
-      "Cunapachatejj Supayajja\nCunaymanita yant’apijestu,\nJesuCristowa wirpjrej,\nTakenirus a’chamarach.",
-      "Cunapachatejj iyawsanäj\nChuymanacast jayantatajj,\nJesuCristowa suma khanajj\nLajja ch’amaca urunacan."
-    ],
-    "coro": "Alabänañi Khespiyirir,\nJiwas laycwa jiwañay;\nKhespiyiririna asquipaya,\nJacañasorojj sarapjña."
-  },
-  {
-    "id": "69a",
-    "titulo": "AUNQUE EN ESTA VIDA (Re)",
-    "estrofas": [
-      "Aunque en esta vida, no tengo riquezas\nSé que allá en la gloria, tengo una mansión\nCual alma perdida, entre las pobrezas\nDe mi Jesucristo, tuvo compasión.",
-      "Así por el mundo, sigo caminando\nDe pruebas rodeado y de tentación.\nPero a mi lado viene consolando\nMi bendito Cristo en la turbación.",
-      "A los pueblos todos, del linaje humano\nCristo quiere darles, plena salvación.\nTambién una casa para cada hermano\nFue a prepararles en la santa Sión."
-    ],
-    "coro": "Más allá del sol, más allá del sol,\nYo tengo un hogar, hogar, bello hogar,\nMás allá del sol. (Bis)"
-  },
-  {
-    "id": "69b",
-    "titulo": "ACA ORAKENJJA JAN YÄÑACAÑICTSA (Re)",
-    "estrofas": [
-      "Aca orakenjja jan yäñacañictsa\nAlajjpach marcaruwa cussiñ jaca.\nChhakkat uñjasinwa Cristojj khespiytu\nMunasïñampiñp uwÿthaptaya.",
-      "Llaquin muyuntata, cunayman yant’at\nAca orakenja, nayajj sarnakta.\nUcampis Cristowa nayajj qhanañchiri,\nJupaw chuyumachitu, sapu uruna.",
-      "Take marcanquir jakenacaruwa\nCristojj churani muni wiñay samarañ.\nMä suma utampi, alajjpach marcana\nJupajj waquichasqui, takenïtaqui."
-    ],
-    "coro": "Alajjpachanqañja, alajjpachanqañja,\nMä suma utaw nayam uttjitu,\nAlajjpachanqañja. (Bis)"
-  },
-  {
-    "id": "70a",
-    "titulo": "EN PRESENCIA ESTAR DE CRISTO (Si bemol)",
-    "estrofas": [
-      "En presencia estar de Cristo,\nVer su rostro, qué será,\nCuando al fin en pleno gozo\nMi alma le contemplará.",
-      "Sólo tras oscuro velo\nHoy lo puedo aquí mirar,\nMas ya pronto viene el día\nQue su gloria ha de mostrar.",
-      "¡Cuánto gozo habrá con Cristo\nCuando no haya más dolor!\nCuando cesen los peligros\nY ya estemos en su amor."
-    ],
-    "coro": "¡Cara a cara espero verle\nMás allá del cielo azul;\nCara a cara en plena gloria\nHe de ver a mi Jesús!"
-  },
-  {
-    "id": "70b",
-    "titulo": "CUNJA CUSISIÑANISA (Si bemol)",
-    "estrofas": [
-      "Cunja cusisiñanisa, Criston jac’apancäni,\nAjanupajja unctaawa, almajjajj cussiñani.",
-      "Arunacap tokequiwa, jichhurrojj uñtacasta;\nKhapak cancañap utji urur qhananï patiosa.",
-      "Cunja cusisiñanisa Cristompi jacañajja;\nLlaquinacajju cussiñas munapjja.\nCristor uñcatänañajja, cuna sumaqeijta\nJupajj almapa komachi kollana wilapampi."
-    ],
-    "coro": "Alajjpachanquiww Jesusajj,\nWiñay cussiñ catokan;\nJach’apinaw juparojj jutani,\nKhespiyanacapar catokasini."
-  },
-  {
-    "id": "71a",
-    "titulo": "MI REDENTOR, EL REY DE GLORIA (Re)",
-    "estrofas": [
-      "Mi Redentor, el Rey de gloria,\nQue vive, yo seguro estoy;\nY da coronas de victoria;\nA recibir la mía voy.",
-      "En mi Señor Jesús confío;\nSu sangre clama a mi favor,\nEs dueño él de mi albedrío;\nEstar con él es lo mejor.",
-      "De tanto amor me maravillo,\nYo no me canso de admirar;\nMe libertó de mi peligro,\nSufriendo todo en mi lugar.",
-      "Consuéleme en su larga ausencia\nPensando, pronto volverá.\nEntonces su gloriosa herencia\nA cada fiel Jesús dará."
-    ],
-    "coro": "Que permanezca no pidáis\nEntre el bullicio y el vaivén;\nEl mundo alegre hoy dejara,\nAun cuando fuese algún Edén;\nLa cita nada más aguardo\nQue el Rey me diga: Hijo, ven."
-  },
-  {
-    "id": "71b",
-    "titulo": "NAY KHESPIYIR JESUCRISTOJJA (Re)",
-    "estrofas": [
-      "Nay khespiyir Jesucristojja;\nJacasaquiww nayataquejja,\nJuchar atipinjiraacani,\nAlajjpachan catokasqui."
-    ],
-    "coro": "Alajjpachanquiww Jesusajj,\nWiñay cussiñ catokan;\nJach’apinaw juparojj jutani,\nKhespiyanacapar catokasini."
-  },
-  {
-    "id": "72a",
-    "titulo": "CUANDO OÍ ESA VOZ AMOROSA (Re)",
-    "estrofas": [
-      "Cuando oí esa voz amorosa\nQue me dijo: Oh, ven a la cruz\nDio murió por amor a las almas,\nEl invicto y glorioso Jesús.",
-      "Acudí presuroso y quedé\nRendido a los pies de Jesús\nY la luz de su amor a mi alma\nEn la sangre vertida en la cruz."
-    ],
-    "coro": "Acudí presuroso y quedé\nRendido a los pies de Jesús\nY la luz de su amor a mi alma\nEn la sangre vertida en la cruz."
-  },
-  {
-    "id": "72b",
-    "titulo": "MUNASIR ARUNAC IST’ASAWA (Re)",
-    "estrofas": [
-      "Munasir arunac ist’asawa,\nJucharar cruzar jutam, sasin.\nChhakat almanacar munasawa,\nTatitojj jactaway jiwasin.",
-      "Almajjaip Cristojjar catuytawa,\nJutapjj wayquiw jacawaya;\nJucha jakech jayrïwajja,\nNayatapan sumä casanawa."
-    ],
-    "coro": "Janc’aquiw cruzarojj maqhatanta,\nJesusanc cayupar qullit’asin;\nTake juchanacajj jarekasta,\nCruzan wil wartatap yatisin."
-  },
-  {
-    "id": "73a",
-    "titulo": "PRONTO VUELVE JESUCRISTO (Sol)",
-    "estrofas": [
-      ":Pronto vuelve Jesucristo\nA juzgar a este mundo\nCon divina potestad.\nEsperemos la llegada\nDe aquel hermoso día.\n¡Prepáralos, cristiandad!",
-      "De manera repentina\nVolverá desde la gloria\nNuestro Salvador Jesús.\nCon cuán grande alegría\nLe veremos en las nubes\nEn su refulgente luz.",
-      "Los por Cristo redimidos\nTrabajemos sin desmayo,\nProclamando su amor.\nEsperando con firmeza\nSeguiremos como fieles\nEsperando la venida\nDe Jesús el Salvador."
-    ],
-    "coro": "Cuando venga Jesucristo,\nTemblará el mundo entero;\nNo dará al sol su lumbre,\nNi la luna ni los astros,\nSólo Cristo brillará."
-  },
-  {
-    "id": "73b",
-    "titulo": "TATITUN JUTAÑA PAJJA (Sol)",
-    "estrofas": [
-      "Tatitun jutañ pajja sinti jac’ancapunwa,\nSuyanäni juparu.\nCunja cussiñäsnaja Jesusar catokanajja,\nJutcan ucapachajja.",
-      "Acata jataw jutani khespi yir Jesusajja,\nAleluya Diosaru.\nCunja cussiñäsa Jesusar urcatäñajja,\nJank’o kenay taqpina.",
-      "Jesusan khanapquiwa chuyma nacanasan khanani,\nCunja sumaqiñani.\nJachañas tucuñisnwa, wiñayaw cussiñäni,\nTatitun jac’apana."
-    ]
-  },
-  {
-    "id": "74a",
-    "titulo": "¡GLORIOSO DÍA SERÁ! (Sol)",
-    "estrofas": [
-      "Al mundo Cristo Jesús\nDe los cielos pronto vendrá,\nCon gran poder vendrá,\nY su gloria todos verán.",
-      "Cristo vendrá otra vez\nPoderoso rey y Señor.\nSus hijos fieles irán\nA los cielos junto a Jesús.",
-      "Cristo Jesús reinará\nY la recompensa dará.\nFelices todos serán\nAl estar con Cristo el Señor."
-    ],
-    "coro": "¡Glorioso día será!\nTodos los salvos de Dios\nCara a cara a Cristo verán,\nMuertos resucitarán\nY recibirán a Jesús.\nListos esperemos a Él."
-  },
-  {
-    "id": "74b",
-    "titulo": "REY JESUSAN JUTÄWIPA (Sol)",
-    "estrofas": [
-      "Rey Jesusaw jutani\nAlajjpach c’ajurij marcata,\nJank’o kenay patjjana\nKollan angelanacampi.",
-      "Rey Jesusaw jutani\nJach’a kollan ch’amapampi\nChäck arquirinacapjjja\nAlajjpacharu irrjjani."
-    ],
-    "coro": "Rey Jesusar unjasajj\nSinti cussiñäniwa,\nKhespiyatanac catokat,\nJiwatanacsa jacanïtap,\nCristor catokänañaj.",
-  },
-  {
-    "id": "75a",
-    "titulo": "ESPERO QUE CRISTO VENGA (Re menor)",
-    "estrofas": [
-      "Espero que Cristo venga,\nNo tardará en venir.\nY cuando llegue ese día,\nIré con Él a morar.",
-      "Mi Cristo mora en el cielo\nE intercede por mí.\nMe libra del vil pecado,\nEs Cristo mi Salvador.",
-      "Unámonos los hermanos\nQue Cristo pronto vendrá.\nY aunque vengan las pruebas,\nÉl siempre nos guardará."
-    ],
-    "coro": "Yo quiero vivir gozoso\nAl lado de mi Jesús.\nEn este mundo de penas\nHay siempre de qué sufrir."
-  },
-  {
-    "id": "75b",
-    "titulo": "CRISTON JUTAÑAPA (Re menor)",
-    "estrofas": [
-      "Criston jutañap suyascta\nCuna ratoc jutcani.\nJutcani ucapachasti\nJupampiw nayajj sarjjja."
-    ],
-    "coro": "Cusisitäw jacanä munta,\nTatitun utapana,\nAca llaqui orakenjja\nCriston suyasjjepjjäni."
-  },
-  {
-    "id": "76a",
-    "titulo": "CRISTO PRONTO VOLVERÁ (Re menor)",
-    "estrofas": [
-      "Muy pronto Cristo vendrá al mundo,\nSeamos dignos de recibir a él\nDía glorioso e inesperado\nPara la iglesia del gran Rey, sí será.\nÉl nos dará su, una corona y un hogar feliz;\nLos redimidos por él en Cristo,\nVivirán con él, vivirán con él.",
-      "Junto con Cristo ángeles miles\nCon gran poder y gloria descenderán,\nCuando se toque ya la trompeta,\nCuando la tierra muy fuerte temblará.\nAl oír el son de las trompetas nos iremos ya,\nY en las nubes veremos todos,\nAl Señor Jesús, al Señor Jesús."
-    ]
-  },
-  {
-    "id": "76b",
-    "titulo": "TATIT JESUSAJJ NIYAW JUTANI (Re menor)",
-    "estrofas": [
-      "Tatit Jesusajj niyaw jutani,\nKhespiyatanacaw catokanï,\nUca urojja jach’a urïniwa,\nCussisimpïaya suypjañäni.\nWiñay jacaña coronampiwa jupajj jutani,\nSalvatancaw uca coron\nCatokanï, catokanï.",
-      "Tatitump chicanj walpachaniwa\nAngelanacasa jutapjjanejja.\nTrumpet toct’ancan ucapachajja,\nAca orakiejja qhattaniwa.\nUca ist’asañjja, sarjjañäniwa aca oraket,\nCristor c’aysa wajjranacasan\nJicjjatañäni, jicjjatañäni."
-    ]
-  },
-  {
-    "id": "77a",
-    "titulo": "¿EN QUÉ HAY FELICIDAD? (La bemol)",
-    "estrofas": [
-      "En el mundo hay dolor, sufrimiento y afán,\nMuchos andan hoy buscando gozo y paz;\nViendo la gran confusión, yo me puse a pensar:\n¿Dónde puede uno hallar felicidad?",
-      "Mucha gente busca paz en riquezas y placer,\nPero sólo encuentran penas y dolor,\nPero el tiempo pasará y la muerte ha de venir,\nEl castigo eternal recibirás.",
-      "Mueve, Señor Jesús, por doquier te seguiré,\nQuiero siempre a tu lado caminar;\nPadre, que mi corazón esté lleno de tu amor,\nSolamente en ti hay gran felicidad."
-    ],
-    "coro": "Si buscamos con afán a Jesús el Salvador,\nHallaremos paz y gran felicidad.\nLa riqueza y el placer de este mundo pasarán,\nPero sólo en Cristo hay gozo eternal."
-  },
-  {
-    "id": "77b",
-    "titulo": "¿CUNANQUIS CUSISIÑAJJA? (La bemol)",
-    "estrofas": [
-      "¿Cunanquis cusisiñajja? sasaw jisc’ijstjje;\nUcar arsjjatanï sinï ch’amawa.\nArumay uruw nayajj cunamay lupiścta,\nCunanquis cusisiñajj jaketaguqui?",
-      "Nayar kataj thakawaw Diosan khapak marcap,\nWiñay cussiñj jicjjatatataquejj,\nYañas pisirïquiww, ch’amus jjaqu’acuqui,\nCristo Tatituqquiw cussiñajja."
-    ],
-    "coro": "Nayrakatajj thakawaw Diosan khapak marcap,\nWiñay cussiñj jicjjatatataquejj;\nYañas pisirïquiww, ch’amus jjaqu’acuqui,\nCristo Tatituqquiw cussiñajja."
-  },
-  {
-    "id": "78a",
-    "titulo": "YUPAYCHAÑANI (Re menor)",
-    "estrofas": [
-      "Charango, quena yupaychañäni\nBombo, guitarra, yupaychañäni,\nTakpach tocampi, yupaychañäni\nRey Jesusaru. (Bis)",
-      "Cullacanacas, yupaychañäni\nJilatanacas, yupaychañäni\nTake chuyumampi, yupaychañäni\nRey Jesusaru. (Bis)",
-      "Bolivia marccajj, yupaychañäni\nTakpach marcas, yupaychañäni\nBendicionapat, yupaychañäni\nRey Jesusaru. (Bis)",
-      "Wa ya ya ya ya, yupaychañäni\nNi ni ni ni ni, yupaychañäni\nLo lo lo lo lo, yupaychañäni\nRey Jesusaru. (Bis)"
-    ],
-    "autor": "Pablo Mamani J."
+    "coro": "Alajjpach marcarojj mantapjjaniwa,\nDiosan libropan kellkatanaca.\nJichhüru thaktamay Tatit Cristoru,\nJuchanacammat perdonätamwa.",
+    "nota": "CALA 89 / S. Y. T."
   },
   {
   "id": "80a",
@@ -1854,6 +1434,17 @@
     "Yo sólo espero ese día,\nCuando Cristo volverá.\nYo sólo espero ese día,\nCuando Cristo volverá.\nAfán y todo trabajo\nPara mí terminarán\n:Cuando Cristo venga\nA su reino me llevará. (Bis)",
     "Ya no me importa, que el mundo\nMe desprecie por doquier;\nYa no soy más de este mundo,\nSoy del reino celestial,\nY sólo espero ese día\nCuando me levantará,\nDe la tumba fría\nCon un cuerpo ya inmortal. (Bis)"
   ]
+},
+{
+  "id": "86b",
+  "titulo": "CUSISIÑ URUWA PURININI (Re)",
+  "estrofas": [
+    "Cusisiñ uruwa purinini,\nJesucristojj jutcan ucapachajj,\nTake marcan jaquir jakenacasti,\nJesusaruw catokapjjañäni.",
+    "Uca suma uru suyasipcta,\nJesucristor catokañataqui;\nPankarar uñtataraquiw khanani,\nJesusajj jutcan ucapachajja.",
+    "Asqui suma cristianonacasti,\nEvangelio parlirinacasa;\nJesucriston ajllit Iglesiapasti\nDiosan ajanup uñcatapjjani."
+  ],
+  "coro": "Tatitun khanapaquiw alajjpachan khanani,\nCunja sumaquïcani, ucan jicjjatasiñajj;\nJachañajj tucusiniw, llaquisiñanacasa,\nJesucristoruw uñcatapjjañäni,\nWiñayaw jupamp jacapjjañäni.",
+  "nota": "Trad. V. Q."
 },
 {
   "id": "87a",
@@ -2286,8 +1877,71 @@
     "estrofas": [
       "Venid, tomad el cuerpo del Señor;\nBebed la sangre que en la cruz vertió.",
       "Quien se ofreció por todos en común,\nVíctima y el sacerdote aún.",
-      "El que a sus fieles guarda y da sostén,\nLa vida eterna les dará también."
+      "El que a sus felices guarda y da sostén,\nLa vida eterna les dará también.",
+      "A los hambrientos pan del cielo es el él,;\nY el agua viva a los que tienen sed.",
+      "Aproximaos con fe y solicitud,\nY recibid los sellos de salud.",
+      "Seños Jesus, que al mundo juzgaráz\nHoy tu presencia nos sustentará.",
+    ],
+    "nota": "Cel. 144"
+  },
+  {
+    "id": "128",
+    "titulo": "MI PAZ OS DEJO",
+    "estrofas": [
+      "Mi paz os dejo, mi paz os doy\nNo como el mundo la ofrece hoy,\nMi paz os dejo, mi paz os doy\n:Paz con justicia quiere el Señor. (Bis)",
+      "En ti confío Señor mi Dios,\nQue me inspiraste tu inmenso amor,\nMe revestiste de gran valor;\n:Para construir un mundo mejor. (Bis)",
+      "Un sólo puño, sólo una vez,\nEn el proceso liberador,\nUnidos todos con fe y amor,\n:Junto a la Roca de salvación. (Bis)"
     ]
+  },
+  {
+    "id": "129",
+    "titulo": "TATAY YANAPT’ITAYA (Re menor)",
+    "estrofas": [
+      "Jacawejjas Tatay\nJumar churatájew\nMunañamas phokhaspanay. (Bis)",
+      ":Llamp’u chuymay Tata\nNayar churasita\nMunasiñampi phok’t’ita. (Bis)"
+    ],
+    "coro": ":Tatay yanapt’itaya\nÑankha luraw armaña\nAsqui lurañ yatichitay. (Bis)\n:Aca chuymajjasti\nJuman utamapanay\nJumampiwa jacañ munta. (Bis)",
+    "nota": "L. y M. J. F."
+  },
+  {
+    "id": "130a",
+    "titulo": "TE DOY GRACIAS, SEÑOR (Re menor)",
+    "estrofas": [
+      "Donde voy oh Padre Dios,\nSiempre tú conmigo estás.\nPor mostrarme tu amor\nSufriste en la cruz por mí.",
+      "En tristezas y dolor\nTú me das consolación.\n¿Qué me puede apartar\nDe tu amor y protección?"
+    ],
+    "coro": "Te doy gracias oh Señor,\nPor tu salvación y amor.\nGuíame Señor Jesús,\nA tu casa celestial."
+  },
+  {
+    "id": "130b",
+    "titulo": "YUSPAGARSMW AWQUEJJA (Re menor)",
+    "estrofas": [
+      "Nayar munatam laycuw, calvar cruzan jwtauja;\nlyawsatajj laycuquiwi, juchajjat khespiyista.",
+      "Llaquisiñanacansa jumaquiw chuymachista,\n¿Qhitirac apaketan, jach'a munasiñamat?",
+      "Kollkes isis pist'itpan, mank'añajjas Awquejja;\nCunayman pist'añasaa, arcasquimaw Tatay."
+    ],
+    "coro": "Yuspagarsmaw Awquejja, nayar khespiyatamat;\nAlajjpachar puriñcam, jumajj irpasiquita.",
+    "nota": "S. Ch. L."
+  },
+  {
+    "id": "131a",
+    "titulo": "DEMOS GRACIAS A DIOS (Re menor)",
+    "estrofas": [
+      "Demos gracias al Señor, Padre Dios y Creador\nQuien nos llena cada día de paz y bendición.\nDemos gracias por su amor con el cual él nos salvó\nDel camino obscuro y vil a la vida eternal.",
+      "Demos gracias al Señor porque con su amor nos dio\nSu mensaje de perdón del pecado y todo mal.\nDemos gracias al Señor por la vida que él nos da,\nVida de felicidad, gozo, paz y gran amor."
+    ],
+    "coro": "Demos gracias de todo corazón al buen Salvador,\nEn felicidad y paz o en dolores y aflicción. (Bis)"
+  },
+  {
+    "id": "131b",
+    "titulo": "YUSPAGARAÑANI ALAJJPACH AWQUISARU (Re menor)",
+    "estrofas": [
+      "Yuspagarañaniya alajjpach Awquisaru\nJupajj bendicionanac sapürus churasquistu;\nYuspagarañaniya khespiyistu ucata,\nCh'amac thaquit irpsustu wiñay khana thaquiru.",
+      "Yuspagarañaniya jacaña arupata,\nJuchan juyhüquipanwa jiwasar uñjayistu.\nYuspagarañaniya machak jak tucuyistu,\nChuymasar cusiñia jupaji churatapata.",
+      "Yuspagarañaniya ñankhat imatapata,\nJan walt'añanacansa Tatitoj yanapistu.\nYuspagarañaniya yant'anac jutipana,\nUcampiw yatichistu sum jacañasataqui."
+    ],
+    "coro": "Tatitur yuspagarañaniya take chuyamampi,\nCusisiñanacansa, llaquisiñanacansa. (Bis)",
+    "nota": "A. H. C."
   }
 ]
 ],

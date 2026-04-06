@@ -1,101 +1,195 @@
-import React, { useState, useCallback, useRef } from 'react';
-import { View, Text, FlatList, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState, useCallback, useRef, useMemo } from 'react';
+import { View, Text, FlatList, TextInput, TouchableOpacity, StyleSheet, Platform } from 'react-native';
 import { useRouter } from 'expo-router';
-import { useFocusEffect } from '@react-navigation/native'; // 👈 para resetear al volver
-import data from '../../himnos.json';
-import { useColorScheme } from '../../hooks/use-color-scheme';
-import { Colors, Fonts, GlobalStyles } from '../../constants/theme';
+import { useFocusEffect } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
+import data from '../../himnos.json';
 import { useFavorites } from '../../context/FavoritesContext';
 
 export default function HomeScreen() {
   const [query, setQuery] = useState('');
-  const [refreshKey, setRefreshKey] = useState(0); // 👈 fuerza refresco
   const router = useRouter();
-  const scheme = useColorScheme();
-  const colors = scheme === 'dark' ? Colors.dark : Colors.light;
-  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
-
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites() || {}; // 👈 Seguridad: Evita error si el context es undefined
   const listRef = useRef(null);
 
-  // 🔄 cada vez que vuelves a esta pantalla, reinicia búsqueda y scroll
   useFocusEffect(
     useCallback(() => {
       setQuery('');
-      setRefreshKey((prev) => prev + 1); // 👈 fuerza reconstrucción del FlatList
-      listRef.current?.scrollToOffset({ offset: 0, animated: false });
+      listRef.current?.scrollToOffset({ offset: 0, animated: true });
     }, [])
   );
 
-  // 👇 Combina himnos y cánticos
-  const allItems = [...data.himnos, ...data.canticos];
+  const allItems = useMemo(() => {
+    const h = (data.himnos || []).map(item => ({ ...item, type: 'Himno' }));
+    const c = (data.canticos || []).map(item => ({ ...item, type: 'Cántico' }));
+    return [...h, ...c];
+  }, []);
 
-  // 🔎 Filtro avanzado para múltiples palabras
-  const filteredItems = allItems.filter((h) => {
-    if (!query.trim()) return true;
-
+  const filteredItems = useMemo(() => {
+    if (!query.trim()) return allItems;
     const words = query.toLowerCase().trim().split(/\s+/);
-
-    return words.every((word) =>
-      h.id?.toString().toLowerCase().includes(word) ||
-      h.titulo?.toLowerCase().includes(word) ||
-      h.estrofas?.some((estrofa) => estrofa?.toLowerCase().includes(word)) ||
-      h.coro?.toLowerCase().includes(word)
+    return allItems.filter((h) =>
+      words.every((word) =>
+        h.id?.toString().toLowerCase().includes(word) ||
+        h.titulo?.toLowerCase().includes(word)
+      )
     );
-  });
+  }, [query, allItems]);
 
   return (
-    <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <TextInput
-        style={GlobalStyles.input(colors, Fonts.sans)}
-        placeholder="Buscar himno o cántico..."
-        placeholderTextColor={colors.icon}
-        value={query} // 👈 vinculado al estado
-        onChangeText={(text) => setQuery(text.trim())}
-      />
+    <LinearGradient colors={['#0F2027', '#203A43']} style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>Himnario Digital</Text>
+        <Text style={styles.headerSubtitle}>{filteredItems.length} Alabanzas disponibles</Text>
+      </View>
+
+      <View style={styles.searchContainer}>
+        <Ionicons name="search" size={20} color="#4db6ac" style={{ marginRight: 10 }} />
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Busca por número o título..."
+          placeholderTextColor="#666"
+          value={query}
+          onChangeText={setQuery}
+        />
+      </View>
 
       <FlatList
         ref={listRef}
-        key={refreshKey} // 👈 fuerza reconstrucción al volver
         data={filteredItems}
-        keyExtractor={(item, index) => item?.id ? item.id.toString() : index.toString()}
-        initialScrollIndex={0}
-        renderItem={({ item }) => (
-          <View style={styles.row}>
+        // ✅ CORRECCIÓN DE ERROR toString():
+        keyExtractor={(item, index) => (item && item.id ? item.id.toString() : `item-${index}`)}
+        contentContainerStyle={styles.listPadding}
+        renderItem={({ item }) => {
+          const favorited = isFavorite ? isFavorite(item.id) : false;
+          return (
             <TouchableOpacity
-              style={{ flex: 1 }}
+              activeOpacity={0.7}
               onPress={() => router.push({ pathname: '/modal', params: { id: item.id } })}
+              style={styles.card}
             >
-              <Text style={[styles.titulo, { color: colors.text, fontFamily: Fonts.serif }]}>
-                {item.id}. {item.titulo}
-              </Text>
+              <View style={styles.idBadge}><Text style={styles.idText}>{item.id}</Text></View>
+              <View style={{ flex: 1, marginLeft: 15 }}>
+                <Text style={styles.typeLabel}>{item.type.toUpperCase()}</Text>
+                <Text style={styles.titulo} numberOfLines={1}>{item.titulo}</Text>
+              </View>
+              <TouchableOpacity onPress={() => favorited ? removeFavorite(item.id) : addFavorite(item)} style={{ padding: 10 }}>
+                <Ionicons name={favorited ? 'star' : 'star-outline'} size={24} color={favorited ? '#FFD700' : '#4db6ac'} />
+              </TouchableOpacity>
             </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={() =>
-                isFavorite(item.id) ? removeFavorite(item.id) : addFavorite(item)
-              }
-            >
-              <Ionicons
-                name={isFavorite(item.id) ? 'star' : 'star-outline'}
-                size={24}
-                color={colors.tint}
-              />
-            </TouchableOpacity>
-          </View>
-        )}
-        ListEmptyComponent={() => (
-          <Text style={{ color: colors.text, textAlign: 'center', marginTop: 20 }}>
-            ❌ No se encontraron himnos o cánticos
-          </Text>
-        )}
+          );
+        }}
+        ListEmptyComponent={<Text style={styles.emptyText}>No se encontraron resultados</Text>}
       />
-    </View>
+    </LinearGradient>
   );
 }
 
+// Los estilos son compartidos, se definen abajo para ambos
+
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20 },
-  row: { flexDirection: 'row', alignItems: 'center', marginBottom: 20 },
-  titulo: { fontWeight: '600', fontSize: 18 },
+  container: { flex: 1 },
+  header: {
+    paddingTop: 60,
+    paddingHorizontal: 25,
+    marginBottom: 20,
+  },
+  headerTitle: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#E0E0E0',
+    letterSpacing: 0.5,
+  },
+  headerSubtitle: {
+    fontSize: 14,
+    color: '#4db6ac',
+    marginTop: 4,
+    fontWeight: '500',
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#ffffff08',
+    marginHorizontal: 20,
+    paddingHorizontal: 15,
+    borderRadius: 15,
+    height: 55,
+    borderWidth: 1,
+    borderColor: '#ffffff15',
+    marginBottom: 10,
+  },
+  searchIcon: { marginRight: 10 },
+  searchInput: {
+    flex: 1,
+    color: 'white',
+    fontSize: 16,
+  },
+  listPadding: {
+    paddingHorizontal: 20,
+    paddingBottom: 40,
+  },
+  card: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#ffffff10',
+    padding: 15,
+    borderRadius: 18,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: '#ffffff08',
+    ...Platform.select({
+      ios: { shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.2, shadowRadius: 5 },
+      android: { elevation: 3 },
+    }),
+  },
+  idBadge: {
+    width: 45,
+    height: 45,
+    borderRadius: 22.5,
+    backgroundColor: '#4db6ac20',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#4db6ac40',
+  },
+  idText: {
+    color: '#4db6ac',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  infoContainer: {
+    flex: 1,
+    marginLeft: 15,
+  },
+  typeLabel: {
+    fontSize: 10,
+    fontWeight: 'bold',
+    color: '#888',
+    marginBottom: 2,
+    letterSpacing: 1,
+  },
+  titulo: {
+    fontSize: 17,
+    fontWeight: '600',
+    color: '#E0E0E0',
+  },
+  favBtn: {
+    padding: 10,
+    marginRight: 5,
+  },
+  emptyContainer: {
+    alignItems: 'center',
+    marginTop: 100,
+  },
+  emptyText: {
+    color: '#E0E0E0',
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 20,
+  },
+  emptySubtext: {
+    color: '#666',
+    marginTop: 5,
+  },
 });
