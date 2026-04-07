@@ -3,28 +3,43 @@ import { View, Text, FlatList, TextInput, TouchableOpacity, StyleSheet, Platform
 import { useRouter } from 'expo-router';
 import { useFocusEffect } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import data from '../../himnos.json';
 import { useFavorites } from '../../context/FavoritesContext';
+import { RegistrarHimnoModal } from '../../components/RegistrarHimnoModal';
+import { getHimnosNuevos } from '../../services/himnasService';
+import { Himno } from '../../types/himno';
 
 export default function HomeScreen() {
   const [query, setQuery] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
+  const [himnosNuevos, setHimnosNuevos] = useState<Himno[]>([]);
   const router = useRouter();
-  const { addFavorite, removeFavorite, isFavorite } = useFavorites() || {}; // 👈 Seguridad: Evita error si el context es undefined
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites() || {};
   const listRef = useRef(null);
 
   useFocusEffect(
     useCallback(() => {
       setQuery('');
       listRef.current?.scrollToOffset({ offset: 0, animated: true });
+      
+      // ✅ NUEVO: Cargar himnos nuevos del AsyncStorage
+      const cargarHimnosNuevos = async () => {
+        const nuevosList = await getHimnosNuevos();
+        setHimnosNuevos(nuevosList);
+      };
+      cargarHimnosNuevos();
     }, [])
   );
 
   const allItems = useMemo(() => {
     const h = (data.himnos || []).map(item => ({ ...item, type: 'Himno' }));
     const c = (data.canticos || []).map(item => ({ ...item, type: 'Cántico' }));
-    return [...h, ...c];
-  }, []);
+    // ✅ NUEVO: Agregar himnos nuevos
+    const nuevos = himnosNuevos.map(item => ({ ...item, type: 'Himno Nuevo' }));
+    return [...h, ...c, ...nuevos];
+  }, [himnosNuevos]);
 
   const filteredItems = useMemo(() => {
     if (!query.trim()) return allItems;
@@ -58,7 +73,6 @@ export default function HomeScreen() {
       <FlatList
         ref={listRef}
         data={filteredItems}
-        // ✅ CORRECCIÓN DE ERROR toString():
         keyExtractor={(item, index) => (item && item.id ? item.id.toString() : `item-${index}`)}
         contentContainerStyle={styles.listPadding}
         renderItem={({ item }) => {
@@ -82,11 +96,26 @@ export default function HomeScreen() {
         }}
         ListEmptyComponent={<Text style={styles.emptyText}>No se encontraron resultados</Text>}
       />
+
+      {/* ✅ NUEVO: Botón flotante FAB para registrar himnos */}
+      <TouchableOpacity
+        style={styles.fab}
+        onPress={() => setModalVisible(true)}
+      >
+        <MaterialIcons name="add" size={28} color="#fff" />
+      </TouchableOpacity>
+
+      {/* ✅ NUEVO: Modal de registro */}
+      <RegistrarHimnoModal
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+        onHimnoGuardado={(himno) => {
+          setHimnosNuevos([...himnosNuevos, himno]);
+        }}
+      />
     </LinearGradient>
   );
 }
-
-// Los estilos son compartidos, se definen abajo para ambos
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
@@ -191,5 +220,21 @@ const styles = StyleSheet.create({
   emptySubtext: {
     color: '#666',
     marginTop: 5,
+  },
+  fab: {
+    position: 'absolute',
+    bottom: 30,
+    right: 30,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: '#4CAF50',
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
   },
 });
